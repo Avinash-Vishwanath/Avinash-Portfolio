@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering & Simulation Showcase</title>
+  
+  <!-- Loads Google 3D model viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #0f1117;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+    h1 { color: #58a6ff; }
+    h2 { color: #79c0ff; margin-top: 0; }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    model-viewer {
+      width: 100%;
+      height: 380px;
+      background: #010409;
+      border-radius: 6px;
+    }
+    pre {
+      background: #010409;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      color: #7ee787;
+    }
+    .badge {
+      background: #238636;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Engineering & Simulation Portfolio</h1>
+  <p>Showcasing functional 3D prints, aerospace research, and autonomous Kerbal Space Program missions.</p>
+
+  <!-- 3D PRINTING SECTION -->
+  <div class="card">
+    <h2>🖨️ 3D Printing Showcase</h2>
+    <p>Rotate, pan, and zoom the 3D model below using your mouse or touchscreen:</p>
+    
+    <!-- This loads an interactive 3D model (GLB format) -->
+    <model-viewer 
+      src="assets/model.glb" 
+      alt="3D Engineering Assembly" 
+      auto-rotate 
+      camera-controls 
+      shadow-intensity="1">
+    </model-viewer>
+  </div>
+
+  <!-- KSP AUTOPILOT SECTION -->
+  <div class="card">
+    <h2>🚀 Kerbal Space Program: Autonomous Ascent <span class="badge">kOS</span></h2>
+    <p>Automated gravity turn script executed via Kerboscript:</p>
+
+    <pre><code>// Ascent Autopilot Script
+CLEARSCREEN.
+PRINT "Initiating launch sequence...".
+
+LOCK THROTTLE TO 1.0.
+LOCK STEERING TO HEADING(90, 90).
+STAGE.
+
+// Pitch down as speed builds
+WAIT UNTIL SHIP:VELOCITY:SURFACE:MAG > 100.
+LOCK STEERING TO HEADING(90, 45).
+
+// Cut engines at desired apoapsis
+WAIT UNTIL SHIP:APOAPSIS > 80000.
+LOCK THROTTLE TO 0.0.
+PRINT "Target apoapsis reached!".</code></pre>
+  </div>
+
+</body>
+</html>
