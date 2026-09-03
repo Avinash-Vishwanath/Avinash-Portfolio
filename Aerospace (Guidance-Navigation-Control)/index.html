@@ -12,6 +12,8 @@
       --text: #c9d1d9;
       --heading: #f0f6fc;
       --accent: #58a6ff;
+      --tag-bg: #21262d;
+      --code-bg: #0f141c;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -21,33 +23,116 @@
       line-height: 1.6;
       padding: 2rem 1rem;
     }
-    .container { max-width: 800px; margin: 0 auto; }
-    a.back { color: var(--accent); text-decoration: none; font-size: 0.95rem; }
+    .container { max-width: 860px; margin: 0 auto; }
+    a.back { color: var(--accent); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
     a.back:hover { text-decoration: underline; }
     header { margin: 2rem 0; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
-    h1 { color: var(--heading); margin-bottom: 0.5rem; }
+    h1 { color: var(--heading); font-size: 2rem; margin-bottom: 0.5rem; }
+    
     .project-entry {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1.8rem;
       margin-top: 1.5rem;
     }
-    .project-entry h2 { color: var(--heading); font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .project-entry h2 { color: var(--heading); font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .project-entry h3 { color: var(--heading); font-size: 1.1rem; margin: 1.2rem 0 0.4rem; }
+    
+    .tag-container { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.8rem 0 1.2rem; }
+    .tag {
+      font-size: 0.8rem;
+      background: var(--tag-bg);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+    .spec-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.8rem;
+      border-radius: 6px;
+    }
+    .spec-label { font-size: 0.75rem; text-transform: uppercase; color: #8b949e; display: block; }
+    .spec-value { font-size: 1rem; font-weight: 600; color: var(--heading); }
+
+    .asset-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .asset-btn {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      background: var(--tag-bg);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .asset-btn:hover { border-color: var(--accent); }
   </style>
 </head>
 <body>
   <div class="container">
     <a href="../" class="back">&larr; Back to Overview</a>
+    
     <header>
       <h1>Aerospace (Guidance-Navigation-Control)</h1>
-      <p>Flight software, telemetry pipelines, and atmospheric simulation projects.</p>
+      <p>Flight software, automated trajectory execution, telemetry pipelines, and orbital dynamics simulations.</p>
     </header>
 
     <main>
       <div class="project-entry">
-        <h2>Telemetry & Flight Control Simulation</h2>
-        <p>Details about control algorithms, simulation outputs, and scripts can be documented directly here.</p>
+        <h2>Automated Launch & Orbit Insertion Architecture</h2>
+        <div class="tag-container">
+          <span class="tag">kOS</span>
+          <span class="tag">Python</span>
+          <span class="tag">Trajectory Optimization</span>
+          <span class="tag">Closed-Loop Guidance</span>
+        </div>
+        
+        <p>
+          Automated ascent guidance program featuring dynamic gravity turn calculation, closed-loop throttle modulation to manage dynamic pressure (Q<sub>max</sub>), and automated vector-based circularization burn execution.
+        </p>
+
+        <div class="specs-grid">
+          <div class="spec-box">
+            <span class="spec-label">Target Orbit</span>
+            <span class="spec-value">80 km &times; 80 km</span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Guidance Law</span>
+            <span class="spec-value">Parameterized Gravity Turn</span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Circularization &Delta;v</span>
+            <span class="spec-value">Vis-Viva Derived</span>
+          </div>
+        </div>
+
+        <h3>Control Architecture & Flight Logic</h3>
+        <p>
+          The ascent controller executes an initial vertical climb to achieve safe clearance velocity before introducing a pitch kick. Pitch angle decreases as a function of surface velocity and altitude, maintaining aerodynamic alignment to minimize angle of attack (&alpha; &approx; 0&deg;) through high dynamic pressure regimes.
+        </p>
+
+        <div class="asset-links">
+          <a class="asset-btn" href="./scripts/">Browse Flight Scripts &rarr;</a>
+          <a class="asset-btn" href="./plots/">View Trajectory Plots &rarr;</a>
+          <a class="asset-btn" href="./telemetry/">Raw Telemetry Data &rarr;</a>
+        </div>
       </div>
     </main>
   </div>
