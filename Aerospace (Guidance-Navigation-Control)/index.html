@@ -116,8 +116,8 @@
       <div class="project-entry">
         <h2>Automated Launch &amp; Orbit Insertion Architecture</h2>
         <div class="tag-container">
-          <span class="tag">kOS</span>
           <span class="tag">Python</span>
+          <span class="tag">krpc</span>
           <span class="tag">Trajectory Optimization</span>
           <span class="tag">Closed-Loop Guidance</span>
         </div>
@@ -146,32 +146,52 @@
           The ascent controller executes an initial vertical climb to achieve safe clearance velocity before introducing a pitch kick. Pitch angle decreases as a function of surface velocity and altitude, maintaining aerodynamic alignment to minimize angle of attack (&alpha; &approx; 0&deg;) through high dynamic pressure regimes.
         </p>
 
-        <h3>Guidance Routine Preview (<code>ascent.ks</code>)</h3>
-        <pre><code>// Dynamic Gravity Turn Controller
-// Avinash Vishwanath - GNC Architecture
+        <h3>Ascent Guidance Logic (<code>ascent_guidance.py</code>)</h3>
+        <pre><code>import time
+import krpc
 
-DECLARE PARAMETER target_apoapsis IS 80000.
-DECLARE PARAMETER pitch_alt_cutoff IS 55000.
+# Establish telemetry connection
+conn = krpc.connect(name='Ascent Guidance Controller')
+vessel = conn.space_center.active_vessel
 
-LOCK THROTTLE TO 1.0.
-LOCK STEERING TO UP.
-STAGE.
+# Mission targets & parameters
+TARGET_APOAPSIS = 80_000      # 80 km target orbit
+PITCH_CUTOFF_ALT = 55_000     # Gravity turn terminal altitude
+MAX_Q_LIMIT = 25_000          # Dynamic pressure threshold (Pa)
 
-WAIT UNTIL SHIP:AIRSPEED > 100.
-PRINT "Initiating roll & pitch program...".
+# Telemetry data streams
+altitude = conn.add_stream(getattr, vessel.flight(), 'mean_altitude')
+apoapsis = conn.add_stream(getattr, vessel.orbit, 'apoapsis_altitude')
+dynamic_q = conn.add_stream(getattr, vessel.flight(), 'dynamic_pressure')
 
-LOCK target_pitch TO MAX(5, 90 * (1 - (SHIP:ALTITUDE / pitch_alt_cutoff)^0.5)).
-LOCK STEERING TO HEADING(90, target_pitch).
+# Ignition & Liftoff
+vessel.control.throttle = 1.0
+vessel.auto_pilot.engage()
+vessel.auto_pilot.target_pitch_and_heading(90, 90)
+vessel.control.activate_next_stage()
 
-// Closed-loop throttle adjustment for Q_max
-LOCK dynamic_q TO 0.5 * SHIP:BODY:ATM:ALTITUDEPRESSURE(SHIP:ALTITUDE) * (SHIP:AIRSPEED^2).
-WHEN dynamic_q > 25000 THEN {
-    LOCK THROTTLE TO 0.7.
-}
+# Ascent loop: Gravity turn & closed-loop Q_max throttle control
+while apoapsis() < TARGET_APOAPSIS:
+    alt = altitude()
+    
+    # Dynamic pitch kick profile
+    if alt > 1000:
+        progress = min(1.0, (alt - 1000) / (PITCH_CUTOFF_ALT - 1000))
+        target_pitch = max(5.0, 90.0 * (1.0 - progress**0.5))
+        vessel.auto_pilot.target_pitch_and_heading(target_pitch, 90)
+    
+    # Throttle modulation for aerodynamic load management
+    if dynamic_q() > MAX_Q_LIMIT:
+        vessel.control.throttle = 0.7
+    else:
+        vessel.control.throttle = 1.0
+        
+    time.sleep(0.1)
 
-WAIT UNTIL SHIP:APOAPSIS >= target_apoapsis.
-LOCK THROTTLE TO 0.
-PRINT "Sub-orbital trajectory established. Preparing MECO.".</code></pre>
+# Main Engine Cut-Off (MECO)
+vessel.control.throttle = 0.0
+vessel.auto_pilot.disengage()
+print("MECO achieved. Sub-orbital trajectory verified.")</code></pre>
 
         <div class="asset-links">
           <a class="asset-btn" href="https://github.com/avinash-vishwanath/Avinash-Portfolio/tree/main/Aerospace%20(Guidance-Navigation-Control)/Scripts" target="_blank" rel="noopener">View Source on GitHub &rarr;</a>
