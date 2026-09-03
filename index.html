@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avinash Vishwanath | Engineering Portfolio</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --heading: #f0f6fc;
+      --accent: #58a6ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { margin-bottom: 3rem; text-align: center; }
+    h1 { color: var(--heading); font-size: 2.2rem; margin-bottom: 0.5rem; }
+    p.tagline { color: var(--accent); font-size: 1.1rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+    .card h3 { color: var(--heading); margin-bottom: 0.75rem; }
+    .card p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      background: #21262d;
+      color: var(--accent);
+      border-radius: 4px;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8b949e;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Avinash Vishwanath</h1>
+      <p class="tagline">Aerospace GNC | Additive Manufacturing | Systems Engineering</p>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Aerospace GNC</h3>
+        <p>Guidance, Navigation, and Control algorithms, flight trajectory calculations, and simulation telemetry.</p>
+        <span class="badge">Python</span>
+        <span class="badge">Simulation</span>
+        <span class="badge">GNC</span>
+      </div>
+
+      <div class="card">
+        <h3>Additive Manufacturing CAD</h3>
+        <p>Parametric modeling, topology optimization, design for additive manufacturing (DfAM), and rapid prototyping.</p>
+        <span class="badge">CAD</span>
+        <span class="badge">3D Printing</span>
+        <span class="badge">DfAM</span>
+      </div>
+
+      <div class="card">
+        <h3>Research Notes</h3>
+        <p>Technical publications, mission analysis notes, orbital mechanics papers, and engineering write-ups.</p>
+        <span class="badge">Literature Review</span>
+        <span class="badge">Whitepapers</span>
+      </div>
+
+      <div class="card">
+        <h3>Startups & Projects</h3>
+        <p>Product architecture, engineering execution, and early-stage venture documentation.</p>
+        <span class="badge">Ventures</span>
+        <span class="badge">Strategy</span>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Avinash Vishwanath &bull; Hosted on GitHub Pages</p>
+    </footer>
+  </div>
+</body>
+</html>
