@@ -24,7 +24,7 @@ Visit the published portfolio directly at [avinash-vishwanath.github.io/Avinash-
 
 | Platform | Handle / Channel | Purpose |
 | :--- | :--- | :--- |
-| **LinkedIn** | [Avinash Vishwanath](https://www.linkedin.com/in/avinash-vishwanath-2676a9433) | Professional Background & Networking |
+| **LinkedIn** | [Avinash Vishwanath](https://www.linkedin.com/in/avinash-vishwanath) | Professional Background & Networking |
 | **GitHub** | [@Avinash-Vishwanath](https://github.com/Avinash-Vishwanath) | Code Repositories & Technical Projects |
 | **Twitch** | [Live Channel](https://twitch.tv/avinash_vishwanath) | Live Engineering, CAD, & Developer Sessions |
 | **Discord** | [Direct Message](https://discord.com/users/1543204204196266034) | 1-on-1 Contact & Discussions |
