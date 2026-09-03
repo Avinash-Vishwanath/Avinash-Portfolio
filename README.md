@@ -24,5 +24,5 @@ Visit the published portfolio directly at [avinash-vishwanath.github.io/Avinash-
 
 - **GitHub**: [Avinash-Vishwanath](https://github.com/Avinash-Vishwanath)
 - **LinkedIn**: [Profile](https://linkedin.com/in/avinash-vishwanath-2676a9433)
-- **Discord**: [Connect](https://discord.gg/WpHJaUuwz)
+- **Discord**: [Connect](https://discord.com/users/1543204204196266034)
 - **Twitch**: [Channel](https://twitch.tv/avinash_vishwanath)
