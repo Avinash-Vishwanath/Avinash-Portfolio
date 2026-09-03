@@ -22,8 +22,10 @@ Visit the published portfolio directly at [avinash-vishwanath.github.io/Avinash-
 
 ## 🔗 Connect
 
-* [![LinkedIn](https://img.shields.io/badge/LinkedIn-Avinash_Vishwanath-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/avinash-vishwanath-2676a9433)
-* [![GitHub](https://img.shields.io/badge/GitHub-Avinash--Vishwanath-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Avinash-Vishwanath)
-* [![Twitch](https://img.shields.io/badge/Twitch-Streaming-9146FF?style=for-the-badge&logo=twitch&logoColor=white)](https://twitch.tv/avinash_vishwanath)
-* [![Discord Direct](https://img.shields.io/badge/Discord-Direct_Message-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/1543204204196266034)
-* [![Discord Server](https://img.shields.io/badge/Discord-Community_Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/WpHJaUuwz)
+| Platform | Handle / Channel | Purpose |
+| :--- | :--- | :--- |
+| **LinkedIn** | [Avinash Vishwanath](https://www.linkedin.com/in/avinash-vishwanath-2676a9433) | Professional Background & Networking |
+| **GitHub** | [@Avinash-Vishwanath](https://github.com/Avinash-Vishwanath) | Code Repositories & Technical Projects |
+| **Twitch** | [Live Channel](https://twitch.tv/avinash_vishwanath) | Live Engineering, CAD, & Developer Sessions |
+| **Discord** | [Direct Message](https://discord.com/users/1543204204196266034) | 1-on-1 Contact & Discussions |
+| **Discord** | [Portfolio Server](https://discord.gg/WpHJaUuwz) | Community & Project Collaboration |
