@@ -36,14 +36,23 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(88, 166, 255, 0.1);
     }
-    .card h3 { color: var(--heading); margin-bottom: 0.75rem; }
-    .card p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .card h3 { color: var(--heading); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; }
+    .card h3 .arrow { font-size: 1rem; color: var(--accent); opacity: 0; transition: opacity 0.2s; }
+    .card:hover h3 .arrow { opacity: 1; }
+    .card p { font-size: 0.95rem; margin-bottom: 1.25rem; }
+    .tags { margin-top: auto; }
     .badge {
       display: inline-block;
       font-size: 0.75rem;
@@ -72,35 +81,51 @@
     </header>
 
     <div class="grid">
-      <div class="card">
-        <h3>Aerospace GNC</h3>
-        <p>Guidance, Navigation, and Control algorithms, flight trajectory calculations, and simulation telemetry.</p>
-        <span class="badge">Python</span>
-        <span class="badge">Simulation</span>
-        <span class="badge">GNC</span>
-      </div>
+      <a class="card" href="Aerospace%20GNC/">
+        <div>
+          <h3>Aerospace GNC <span class="arrow">&rarr;</span></h3>
+          <p>Guidance, Navigation, and Control algorithms, flight trajectory calculations, and simulation telemetry.</p>
+        </div>
+        <div class="tags">
+          <span class="badge">Python</span>
+          <span class="badge">Simulation</span>
+          <span class="badge">GNC</span>
+        </div>
+      </a>
 
-      <div class="card">
-        <h3>Additive Manufacturing CAD</h3>
-        <p>Parametric modeling, topology optimization, design for additive manufacturing (DfAM), and rapid prototyping.</p>
-        <span class="badge">CAD</span>
-        <span class="badge">3D Printing</span>
-        <span class="badge">DfAM</span>
-      </div>
+      <a class="card" href="Additive%20Manufacturing%20CAD/">
+        <div>
+          <h3>Additive Manufacturing CAD <span class="arrow">&rarr;</span></h3>
+          <p>Parametric modeling, topology optimization, design for additive manufacturing (DfAM), and rapid prototyping.</p>
+        </div>
+        <div class="tags">
+          <span class="badge">CAD</span>
+          <span class="badge">3D Printing</span>
+          <span class="badge">DfAM</span>
+        </div>
+      </a>
 
-      <div class="card">
-        <h3>Research Notes</h3>
-        <p>Technical publications, mission analysis notes, orbital mechanics papers, and engineering write-ups.</p>
-        <span class="badge">Literature Review</span>
-        <span class="badge">Whitepapers</span>
-      </div>
+      <a class="card" href="Research%20Paper%20Notes/">
+        <div>
+          <h3>Research Notes <span class="arrow">&rarr;</span></h3>
+          <p>Technical publications, mission analysis notes, orbital mechanics papers, and engineering write-ups.</p>
+        </div>
+        <div class="tags">
+          <span class="badge">Literature Review</span>
+          <span class="badge">Whitepapers</span>
+        </div>
+      </a>
 
-      <div class="card">
-        <h3>Startups & Projects</h3>
-        <p>Product architecture, engineering execution, and early-stage venture documentation.</p>
-        <span class="badge">Ventures</span>
-        <span class="badge">Strategy</span>
-      </div>
+      <a class="card" href="Startups/">
+        <div>
+          <h3>Startups & Projects <span class="arrow">&rarr;</span></h3>
+          <p>Product architecture, engineering execution, and early-stage venture documentation.</p>
+        </div>
+        <div class="tags">
+          <span class="badge">Ventures</span>
+          <span class="badge">Strategy</span>
+        </div>
+      </a>
     </div>
 
     <footer>
