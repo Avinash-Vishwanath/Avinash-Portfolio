@@ -13,7 +13,7 @@
       --heading: #f0f6fc;
       --accent: #58a6ff;
       --tag-bg: #21262d;
-      --code-bg: #0f141c;
+      --code-bg: #0b0e14;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -37,7 +37,7 @@
       margin-top: 1.5rem;
     }
     .project-entry h2 { color: var(--heading); font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .project-entry h3 { color: var(--heading); font-size: 1.1rem; margin: 1.2rem 0 0.4rem; }
+    .project-entry h3 { color: var(--heading); font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
     
     .tag-container { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.8rem 0 1.2rem; }
     .tag {
@@ -64,11 +64,26 @@
     .spec-label { font-size: 0.75rem; text-transform: uppercase; color: #8b949e; display: block; }
     .spec-value { font-size: 1rem; font-weight: 600; color: var(--heading); }
 
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin-top: 0.8rem;
+      overflow-x: auto;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Courier New", monospace;
+      font-size: 0.85rem;
+      color: #79c0ff;
+      line-height: 1.5;
+    }
+
     .asset-links {
       display: flex;
       gap: 1rem;
-      margin-top: 1.5rem;
-      padding-top: 1rem;
+      margin-top: 1.8rem;
+      padding-top: 1.2rem;
       border-top: 1px solid var(--border);
       flex-wrap: wrap;
     }
@@ -77,12 +92,15 @@
       text-decoration: none;
       font-size: 0.9rem;
       background: var(--tag-bg);
-      padding: 0.4rem 0.8rem;
+      padding: 0.5rem 0.9rem;
       border-radius: 6px;
       border: 1px solid var(--border);
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background-color 0.2s;
     }
-    .asset-btn:hover { border-color: var(--accent); }
+    .asset-btn:hover {
+      border-color: var(--accent);
+      background-color: #2b323b;
+    }
   </style>
 </head>
 <body>
@@ -96,7 +114,7 @@
 
     <main>
       <div class="project-entry">
-        <h2>Automated Launch & Orbit Insertion Architecture</h2>
+        <h2>Automated Launch &amp; Orbit Insertion Architecture</h2>
         <div class="tag-container">
           <span class="tag">kOS</span>
           <span class="tag">Python</span>
@@ -123,15 +141,42 @@
           </div>
         </div>
 
-        <h3>Control Architecture & Flight Logic</h3>
+        <h3>Control Architecture &amp; Flight Logic</h3>
         <p>
           The ascent controller executes an initial vertical climb to achieve safe clearance velocity before introducing a pitch kick. Pitch angle decreases as a function of surface velocity and altitude, maintaining aerodynamic alignment to minimize angle of attack (&alpha; &approx; 0&deg;) through high dynamic pressure regimes.
         </p>
 
+        <h3>Guidance Routine Preview (<code>ascent.ks</code>)</h3>
+        <pre><code>// Dynamic Gravity Turn Controller
+// Avinash Vishwanath - GNC Architecture
+
+DECLARE PARAMETER target_apoapsis IS 80000.
+DECLARE PARAMETER pitch_alt_cutoff IS 55000.
+
+LOCK THROTTLE TO 1.0.
+LOCK STEERING TO UP.
+STAGE.
+
+WAIT UNTIL SHIP:AIRSPEED > 100.
+PRINT "Initiating roll & pitch program...".
+
+LOCK target_pitch TO MAX(5, 90 * (1 - (SHIP:ALTITUDE / pitch_alt_cutoff)^0.5)).
+LOCK STEERING TO HEADING(90, target_pitch).
+
+// Closed-loop throttle adjustment for Q_max
+LOCK dynamic_q TO 0.5 * SHIP:BODY:ATM:ALTITUDEPRESSURE(SHIP:ALTITUDE) * (SHIP:AIRSPEED^2).
+WHEN dynamic_q > 25000 THEN {
+    LOCK THROTTLE TO 0.7.
+}
+
+WAIT UNTIL SHIP:APOAPSIS >= target_apoapsis.
+LOCK THROTTLE TO 0.
+PRINT "Sub-orbital trajectory established. Preparing MECO.".</code></pre>
+
         <div class="asset-links">
-          <a class="asset-btn" href="./scripts/">Browse Flight Scripts &rarr;</a>
-          <a class="asset-btn" href="./plots/">View Trajectory Plots &rarr;</a>
-          <a class="asset-btn" href="./telemetry/">Raw Telemetry Data &rarr;</a>
+          <a class="asset-btn" href="https://github.com/avinash-vishwanath/Avinash-Portfolio/tree/main/Aerospace%20(Guidance-Navigation-Control)/scripts" target="_blank" rel="noopener">View Source on GitHub &rarr;</a>
+          <a class="asset-btn" href="https://github.com/avinash-vishwanath/Avinash-Portfolio/tree/main/Aerospace%20(Guidance-Navigation-Control)/plots" target="_blank" rel="noopener">Browse Plots &rarr;</a>
+          <a class="asset-btn" href="https://github.com/avinash-vishwanath/Avinash-Portfolio/tree/main/Aerospace%20(Guidance-Navigation-Control)/telemetry" target="_blank" rel="noopener">Raw Telemetry &rarr;</a>
         </div>
       </div>
     </main>
