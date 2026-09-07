@@ -1,0 +1,49 @@
+﻿meta:
+  era: "Epoch_01_Sounding_Rockets"
+  mission_id: "1944_A4_MW18014"
+  name: "MW 18014 (First Man-Made Object in Space)"
+  vehicle: "Aggregat-4 (V-2)"
+  epoch_date: "1944-06-20"
+  launch_site: "Peenemunde Test Stand VII"
+
+# Theme settings: High contrast with crisp white borders
+theme:
+  font_family: "Consolas"
+  bg_primary: "#05070a"        # Deep black
+  bg_card: "#0d1117"           # Card background
+  border: "#d0d7de"            # Solid visible white frame border
+  text_main: "#ffffff"         # Bright white readout values
+  accent_blue: "#58a6ff"       # Blue titles
+  color_altitude: "#00f0ff"    # Cyan
+  color_q: "#ff7b72"           # Coral Red
+  color_clock: "#3fb950"       # High-visibility Green
+
+# 8 Parameter Cards with integrated (unit) headers & centered text
+telemetry_cards:
+  - { key: "alt",       label: "ALTITUDE",         unit: "km",  color: "#00f0ff", fmt: "{:6.1f}" }
+  - { key: "downrange", label: "DOWNRANGE",        unit: "km",  color: "#d2a8ff", fmt: "{:6.1f}" }
+  - { key: "vel",       label: "VELOCITY",         unit: "m/s", color: "#79c0ff", fmt: "{:6.1f}" }
+  - { key: "gforce",    label: "ACCELERATION",     unit: "G",   color: "#ffa657", fmt: "{:4.2f}" }
+  - { key: "q",         label: "DYNAMIC PRESSURE", unit: "kPa", color: "#ff7b72", fmt: "{:5.1f}" }
+  - { key: "thrust",    label: "THRUST",           unit: "kN",  color: "#e3b341", fmt: "{:6.1f}" }
+  - { key: "pitch",     label: "PITCH",            unit: "deg", color: "#7ee787", fmt: "{:4.1f}°" }
+  - { key: "heading",   label: "HEADING",          unit: "deg", color: "#f2cc60", fmt: "{:4.1f}°" }
+
+media:
+  flight_video_url: "https://www.youtube.com/watch?v=REPLACE_ME_KSP"
+  telemetry_video_url: "https://www.youtube.com/watch?v=REPLACE_ME_HUD"
+
+nominal_targets:
+  apogee_km: 171.0
+  apogee_met: 242.0
+  burnout_met: 64.0
+  max_q_kpa: 52.0
+  azimuth_deg: 45.0
+
+timeline_milestones:
+  - { met: 0.0,   event: "PRE-STAGE IGNITION" }
+  - { met: 3.0,   event: "MAIN STAGE LIFTOFF" }
+  - { met: 12.0,  event: "PITCH VANE NUDGE" }
+  - { met: 32.0,  event: "MAX-Q (PEAK LOAD)" }
+  - { met: 64.0,  event: "MAIN ENGINE CUTOFF (MECO)" }
+  - { met: 242.0, event: "TARGET APOGEE (~171 KM)" }
