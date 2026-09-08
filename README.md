@@ -29,3 +29,6 @@ Visit the published portfolio directly at [avinash-vishwanath.github.io/Avinash-
 | **Twitch** | [Live Channel](https://twitch.tv/avinash_vishwanath) | Live Engineering, CAD, & Developer Sessions |
 | **Discord** | [Direct Message](https://discord.com/users/1543204204196266034) | 1-on-1 Contact & Discussions |
 | **Discord** | [Portfolio Server](https://discord.gg/WpHJaUuwz) | Community & Project Collaboration |
+
+
+## Testing VS Code Auto Sync
