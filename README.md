@@ -32,3 +32,5 @@ Visit the published portfolio directly at [avinash-vishwanath.github.io/Avinash-
 
 
 ## Testing VS Code Auto Sync
+
+- MacBook Pro M2 Verification Check
