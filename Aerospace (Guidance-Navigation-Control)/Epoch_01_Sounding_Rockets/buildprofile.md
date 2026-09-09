@@ -82,6 +82,6 @@
 | W (Root) | 0.120 |
 | W (Tip) | 0.080 |
 
-**TOTAL DELTA-V = 2932 m/s**
-**TOTAL MASS = 3079 kg**
-**TWR = 2.22 (7.62)**
+## **TOTAL DELTA-V = 2932 m/s**
+## **TOTAL MASS = 3079 kg**
+## **TWR = 2.22 (7.62)**
