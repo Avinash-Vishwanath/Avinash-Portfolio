@@ -64,20 +64,29 @@
 
 ## Aerodynamics : B9 Procedural Wings (Early) :
 
+### Base :
+
 | Parameter | Value |
 | :--- | :--- |
-| Base : |
 | L | 1.150 | 
 | W (Root) |  3.200 |
 | W (Tip) | 0.0850 |
 | Offset (Tip) | 1.650 |
 | Thickness (Root) | 0.075 |
 | Thickness (Tip) | 0.045 |
-| Edge (Leading) : |
+
+### Edge (Leading) :
+
+| Parameter | Value |
+| :--- | :--- |
 | Shape | 2.000 |
 | W (Root) | 0.150 |
 | W (Tip) | 0.100 |
-| Edge (Trailing) : |
+
+### Edge (Trailing) :
+
+| Parameter | Value |
+| :--- | :--- |
 | Shape | 3.000 |
 | W (Root) | 0.120 |
 | W (Tip) | 0.080 |
