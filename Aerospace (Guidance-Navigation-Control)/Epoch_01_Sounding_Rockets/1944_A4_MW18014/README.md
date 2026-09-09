@@ -26,7 +26,7 @@
 
 ## 4. Vehicle Specifications & Documentation
 - [View Construction & Build Profile](buildprofile.md)
-- [View Flight Debrief Notes](mission_notes.md)
+- [View Launch Configuaration & Flight Parameters](launchconfiguaration.md)
 - [View Mission Parameters (YAML)](manifest.yaml)
 - [View Executed Guidance Script](flight_profile.py)
 - [Download Raw CSV Telemetry](data/1944_A4_MW18014_Flight_15_telemetry.csv)
