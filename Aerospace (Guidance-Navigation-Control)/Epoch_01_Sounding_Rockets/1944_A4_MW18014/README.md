@@ -25,7 +25,7 @@
 ---
 
 ## 4. Vehicle Specifications & Documentation
-- [View Construction & Build Profile](build_profile.md)
+- [View Construction & Build Profile](buildprofile.md)
 - [View Flight Debrief Notes](mission_notes.md)
 - [View Mission Parameters (YAML)](manifest.yaml)
 - [View Executed Guidance Script](flight_profile.py)
