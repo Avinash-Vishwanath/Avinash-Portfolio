@@ -46,6 +46,7 @@
 ## Engine :
 
 | Parameter | Value |
+| :--- | :--- |
 | Model | 39b |
 | Thrust | 285 kN |
 | ISP | 242 (Sea Level) - 203 (Vacccum) |
